@@ -5,9 +5,21 @@ var SongModel = Backbone.Model.extend({
     // Triggering an event on an instance of a SongModel will also trigger that event on all collections that SongModel instance belongs to.
     // Why do we need to pass along the keyword this when we trigger the 'play' event?
     this.trigger('play', this);
+    console.log(this);
+  //console.log('this.collection.models within SongModel', this.collection.models);
   },
   enqueue: function(){
+    
     this.trigger('enqueue', this);
+  
+  },
+
+  dequeue: function(){
+    this.trigger('dequeue', this);
+  },
+
+  ended: function(){
+    this.trigger('ended', this);
   }
 });
-console.log(app.get('library'));
+
